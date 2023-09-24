@@ -1,0 +1,37 @@
+<%= form_with(model: trabajo) do |form| %>
+  <% if trabajo.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(trabajo.errors.count, "error") %> prohibited this trabajo from being saved:</h2>
+
+      <ul>
+        <% trabajo.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :cargo, style: "display: block" %>
+    <%= form.text_field :cargo %>
+  </div>
+
+  <div>
+    <%= form.label :area, style: "display: block" %>
+    <%= form.text_field :area %>
+  </div>
+
+  <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div>
+    <%= form.label :user_id, style: "display: block" %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
